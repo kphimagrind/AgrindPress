@@ -1,15 +1,15 @@
 :root {
-  --bg: #fbfbfb;
-  --card: #ffffff;
-  --text: #111827;
-  --muted: #555555;
-  --line: #000000;
-  --line-light: #e5e7eb;
-  --primary: #0f766e;
-  --primary-hover: #115e59;
-  --danger: #991b1b;
-  --shadow: none; /* Menghapus kesan bubble-chat/floating */
-  --radius: 0px;  /* Sudut tegas kotak khas layout koran/majalah */
+  --bg: #f4f7f5;            /* Latar belakang hijau sangat pucat/krem-hijau */
+  --card: #ffffff;          /* Latar panel tetap putih bersih untuk kontras */
+  --text: #243328;          /* Hijau gelap charcoal untuk teks (nyaman dibaca) */
+  --muted: #6b7a6f;         /* Hijau keabu-abuan untuk teks pendukung */
+  --line: #3a4f40;          /* Hijau lumut gelap untuk mengganti garis hitam pekat */
+  --line-light: #dde3de;    /* Garis pemisah abu-abu kehijauan yang soft */
+  --primary: #5c7c66;       /* Hijau sage (sage green) untuk tombol & aksen utama */
+  --primary-hover: #46634e; /* Hijau sage lebih gelap untuk efek sentuh/hover */
+  --danger: #a65d57;        /* Merah bata lembut agar senada dengan tone warna soft */
+  --shadow: none;           /* Tetap tanpa bayangan untuk kesan minimalis */
+  --radius: 0px;            /* Sudut tegas khas editorial */
   --radius-sm: 0px;
   --max: 1240px;
   --font-serif: "Georgia", "Garamond", serif;
@@ -671,4 +671,12 @@ textarea {
     border-bottom: none;
     padding-bottom: 0;
   }
+}
+/* Perbaikan untuk gambar di dalam preview thumbnail dan galeri */
+#thumbnailPreview img,
+#photosPreview img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; 
+  max-height: 300px; /* Opsional: agar gambar portrait tidak terlalu memanjang ke bawah */
 }
