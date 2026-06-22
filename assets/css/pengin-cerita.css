@@ -557,3 +557,107 @@
   }
   
 }
+/* ==========================================================================
+   OVERRIDE: TEMA EDITORIAL NEWSPAPER (DITAMBAHKAN DI BAWAH)
+   ========================================================================== */
+
+/* 1. Timpa Variabel Warna Utama */
+.pengin-page {
+  --pengin-brand: #D3649F;        
+  --pengin-paper: #FFFDFB;        
+  --pengin-ink: #1F161A;          
+  --pengin-muted: #6B5E65;        
+  
+  --pengin-accent: var(--pengin-brand);
+  --pengin-accent-soft: rgba(211, 100, 159, 0.08); 
+  --pengin-line: rgba(211, 100, 159, 0.25);        
+  --pengin-line-strong: var(--pengin-brand);       
+  
+  background: var(--pengin-paper);
+  color: var(--pengin-ink);
+}
+
+/* 2. Paksa Ubah HR di HTML (Menjadi Garis Ganda Editorial) tanpa ubah HTML */
+.pengin-page > hr[style] {
+  height: auto !important;
+  border: none !important;
+  border-top: 4px solid var(--pengin-brand) !important;
+  border-bottom: 1px solid var(--pengin-brand) !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 2px !important;
+}
+
+/* 3. Netralkan Ornamen Gelombang (Wave SVG) */
+.pengin-shell::before {
+  background-image: none !important;
+  height: 1px !important;
+  background-color: var(--pengin-line) !important;
+  border-radius: 0 !important;
+}
+
+/* 4. Perbaiki Hierarki Warna (Warna Tinta untuk Keterbacaan) */
+.pengin-title,
+.pengin-kicker,
+.pengin-section-kicker,
+.pengin-search-label,
+.pengin-empty-kicker {
+  color: var(--pengin-brand);
+}
+
+.pengin-lead,
+.pengin-sublead,
+.pengin-feature-excerpt,
+.pengin-feed-excerpt {
+  color: var(--pengin-muted);
+}
+
+.pengin-feature-title,
+.pengin-rail-title,
+.pengin-feed-title-card,
+.pengin-empty-feed h3,
+.pengin-empty-card h3,
+.pengin-rail-empty h3 {
+  color: var(--pengin-ink);
+  transition: color 0.2s ease;
+}
+
+/* Hover interaktif untuk judul artikel (Berubah Pink) */
+.pengin-feature-link:hover .pengin-feature-title,
+.pengin-rail-link:hover .pengin-rail-title,
+.pengin-feed-link:hover .pengin-feed-title-card {
+  color: var(--pengin-brand);
+}
+
+/* 5. Bersihkan Frame Gambar (Hapus Shadow & Sudut Tajam khas Koran) */
+.pengin-feature-media,
+.pengin-rail-media,
+.pengin-feed-media {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.pengin-feature-link:hover .pengin-feature-img,
+.pengin-rail-link:hover .pengin-rail-img,
+.pengin-feed-link:hover .pengin-feed-img {
+  transform: scale(1.02); /* Ubah efek shadow jadi sedikit zoom elegan */
+}
+
+/* 6. Penegas Garis & Tombol Pagination Klasik */
+.pengin-divider {
+  background-color: var(--pengin-brand);
+  opacity: 0.6;
+}
+
+.page-btn {
+  border-radius: 0;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.page-btn:hover {
+  background: var(--pengin-brand);
+  color: #fff;
+  border-color: var(--pengin-brand);
+}
