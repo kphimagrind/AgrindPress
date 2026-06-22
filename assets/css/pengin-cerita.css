@@ -1,0 +1,559 @@
+/* ==========================================================================
+   1. VARIABEL & SETUP DASAR (ESTETIKA EDITORIAL DIAJENG.ID)
+   ========================================================================== */
+.pengin-page {
+  /* Palet Warna */
+  --pengin-accent: #b61c6d;
+  --pengin-accent-soft: #b61c6d;
+  --pengin-paper: #fffdfb;
+  --pengin-ink: #111111;
+  --pengin-muted: #5f5768;
+  --pengin-line: rgba(17, 17, 17, 0.12);
+  --pengin-line-strong: rgba(17, 17, 17, 0.2);
+  
+  /* Pemetaan Font Sesuai Instruksi */
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  background: #ffffff;
+  color: var(--pengin-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.container-wide {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. SEKSI INTRO & SEARCH SLOT
+   ========================================================================== */
+.pengin-shell {
+  position: relative;
+  padding: 0px 0 20px;
+}
+
+/* Efek hiasan gelombang SVG asli dipertahankan */
+.pengin-shell::before {
+  content: "";
+  display: block;
+  background-color: var(--pengin-accent-soft);
+  border-radius: 9999px;
+  height: 14px;
+  margin-bottom: 18px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='28' viewBox='0 0 40 28'%3E%3Cpath d='M0 7 Q5 0 10 7 T20 7 T30 7 T40 7 H40 V0 H0 Z' fill='%23d4639a'/%3E%3C/svg%3E")
+    repeat-x;
+  background-size: 40px 28px;
+  opacity: 0.95;
+}
+
+.pengin-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(290px, 420px);
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.pengin-copy {
+  max-width: 720px;
+}
+
+.pengin-kicker,
+.pengin-section-kicker,
+.pengin-search-label,
+.pengin-empty-kicker {
+  margin: 0 0 10px;
+  font-size: 0.76rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #D3649F;
+  font-family: var(--font-sans);
+}
+
+.pengin-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.8vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #D3649F;
+  font-weight: 800;
+}
+
+.pengin-lead {
+  max-width: 60ch;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 1px;
+  color: #D3649F;
+  font-family: var(--font-display);
+}
+
+.pengin-sublead {
+  max-width: 60ch;
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--pengin-muted);
+  font-family: var(--font-sans);
+}
+
+.pengin-search-slot {
+  align-self: start;
+}
+
+.pengin-searchbox {
+  background: var(--pengin-paper);
+  border: 1px solid var(--pengin-line);
+  padding: 16px;
+}
+
+.pengin-search-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--pengin-line);
+  background: #fff;
+}
+
+.pengin-search-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  padding: 14px 16px;
+  background: transparent;
+  color: var(--pengin-ink);
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+}
+
+.pengin-search-input::placeholder {
+  color: var(--pengin-muted);
+}
+
+.pengin-search-btn {
+  width: 56px;
+  border: 0;
+  background: var(--pengin-accent-soft);
+  color: var(--pengin-accent);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.pengin-search-btn:hover {
+  background: rgba(182, 28, 109, 0.14);
+  transform: translateY(-1px);
+}
+
+.pengin-chipbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pengin-chip {
+  border: 1px solid var(--pengin-line);
+  background: #fff;
+  color: var(--pengin-muted);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pengin-chip:hover,
+.pengin-chip.is-active {
+  background: var(--pengin-accent);
+  border-color: var(--pengin-accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.pengin-search-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--pengin-line);
+  color: var(--pengin-muted);
+  font-size: 0.84rem;
+}
+
+.pengin-clear-btn {
+  border: 0;
+  background: transparent;
+  color: var(--pengin-accent);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pengin-clear-btn:hover {
+  text-decoration: underline;
+}
+
+.pengin-divider {
+  border: 0;
+  height: 1px;
+  background-color:#D3649F;
+  margin: 15px 0 10px 0;
+}
+
+/* ==========================================================================
+   3. SHOWCASE COLUMN SYSTEM (GRID DENGAN GARIS VERTIKAL TENGAH)
+   ========================================================================== */
+.pengin-showcase {
+  display: grid;
+  /* Membuat susunan 3 kolom presisi: Kiri | Garis Tengah | Kanan */
+  grid-template-columns: minmax(0, 1fr) auto minmax(290px, 0.75fr);
+  gap: 40px; 
+  align-items: stretch; /* Memaksa elemen di dalam kolom memiliki tinggi setara */
+}
+
+/* Garis Pembatas Tengah */
+.garis-vertikal {
+  display: block;
+  width: 1px;
+  background-color: var(--pengin-line-strong); /* Menggunakan variabel intensitas garis Anda */
+  align-self: stretch; /* Memastikan memanjang lurus dari atas ke bawah */
+}
+
+.pengin-feature {
+  min-width: 0;
+}
+
+.pengin-rail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 16px;
+  align-content: start;
+}
+
+/* Komponen Kartu di dalam Showcase */
+.pengin-feature-card,
+.pengin-rail-card,
+.pengin-feed-card,
+.pengin-empty-feed,
+.pengin-empty-card {
+  background: #fffdfb;
+  border-top: none;
+}
+
+.pengin-feature-card {
+  padding-top: 16px;
+}
+
+.pengin-feature-link,
+.pengin-rail-link,
+.pengin-feed-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pengin-feature-media {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  box-shadow: 8px 8px 0 rgba(255, 16, 219, 0.226);
+  background: #f6efe5;
+  margin-bottom: 16px;
+}
+
+.pengin-feature-img,
+.pengin-rail-img,
+.pengin-feed-img {
+  width: 100%;
+  height: 100%;
+  max-width: auto;
+  margin-left:auto;
+  margin-right:auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.22s ease;
+}
+
+.pengin-feature-link:hover .pengin-feature-img,
+.pengin-rail-link:hover .pengin-rail-img,
+.pengin-feed-link:hover .pengin-feed-img {
+  transform: scale(1);
+}
+
+.pengin-feature-body {
+  padding: 0 0 2px;
+}
+
+.pengin-meta-row,
+.pengin-mini-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--pengin-muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  font-family: var(--font-sans);
+}
+
+.pengin-rubrik {
+  color: var(--pengin-accent);
+  font-weight: 700;
+  text-transform: capitalize; 
+  margin-left: 4px;
+}
+
+.pengin-dot {
+  opacity: 0.55;
+}
+
+.pengin-time {
+  white-space: nowrap;
+}
+
+.pengin-feature-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3.4vw, 1.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-left: 3.2px;
+  color: var(--pengin-ink);
+  font-weight: 700;
+}
+  
+.pengin-feature-link:hover .pengin-feature-title {
+  color: #d3649f73;
+}
+
+.pengin-feature-excerpt {
+  margin: 0;
+  color: var(--pengin-ink);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-family: var(--font-sans);
+  margin-left: 2.5px;
+  margin-top: 0.5px;
+}
+
+.pengin-feature-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--pengin-muted);
+  font-family: var(--font-sans);
+}
+
+.pengin-author {
+  font-weight: 700;
+  color: var(--pengin-ink);
+}
+
+.pengin-read {
+  font-weight: 700;
+  color: var(--pengin-accent);
+}
+
+.pengin-rail-card {
+  padding-top: 14px;
+}
+
+.pengin-rail-media {
+  aspect-ratio: 4 / 3;
+  background: #f6efe5;
+  box-shadow: 4px 4px 0 rgba(255, 16, 219, 0.226);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.pengin-rail-body {
+  padding: 0 1px 4px;
+}
+
+.pengin-rail-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--pengin-ink);
+  font-weight: 700;
+  margin-left: 1.5px;
+}
+
+.pengin-rail-link:hover .pengin-rail-title {
+  color: #d3649f73;
+}
+
+/* ==========================================================================
+   4. SEKSI FEED / SEMUA CERITA (GAYA ARTIKEL PORTAL BERITA BERSIH)
+   ========================================================================== */
+.pengin-feed-section {
+  padding: 30px 0 48px;
+}
+
+.pengin-feed-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 20px;
+  margin-bottom: 32px;
+  border-top: 1px solid var(--pengin-line);
+}
+
+.pengin-feed-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.5vw, 2.35rem);
+  line-height: 1.05;
+  color: #D3649F;
+  font-weight: 700;
+}
+
+
+.pengin-result-count {
+  color: var(--pengin-muted);
+  font-size: 0.88rem;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+}
+
+/* Menggunakan CSS Grid Otomatis untuk barisan kartu artikel */
+.pengin-feed {
+  display: grid;
+  gap: 30px 24px;
+  /* Otomatis menjadi 3 kolom di layar lebar, menyusut bertahap ke mobile */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.pengin-feed-card {
+  padding-top: 10px;
+}
+
+.pengin-feed-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f6efe5;
+  margin-bottom: 12px;
+}
+
+.pengin-feed-body {
+  padding-bottom: 2px;
+}
+
+.pengin-feed-title-card {
+  display: inline-block;
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--pengin-ink);
+  font-weight: 700;
+  margin-left: 2.5px;
+}
+
+.pengin-feed-excerpt {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--pengin-ink);
+  font-family: var(--font-sans);
+  margin-left: 1.6px;
+}
+
+/* State Kosong (Empty State) */
+.pengin-empty-feed,
+.pengin-empty-card,
+.pengin-rail-empty {
+  padding: 18px 0 6px;
+}
+
+.pengin-empty-state {
+  padding: 2px 0 4px;
+}
+
+.pengin-empty-feed h3,
+.pengin-empty-card h3,
+.pengin-rail-empty h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  line-height: 1.1;
+  color: var(--pengin-ink);
+}
+.pengin-empty-feed p,
+.pengin-empty-card p,
+.pengin-rail-empty p {
+  margin: 0;
+  color: var(--pengin-muted);
+  font-size: 0.95rem;line-height: 1.7;
+}
+.pengin-empty-feed p + p,
+.pengin-empty-card p + p,
+.pengin-rail-empty p + p {
+  margin-top: 8px;
+}
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 40px;
+}
+.page-btn {
+  border: 1px solid var(--pengin-line);
+  background: #fff;
+  color: var(--pengin-ink);
+  border-radius: 0;
+  min-width: 38px;
+  height: 38px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  cursor: pointer;
+}
+/* ==========================================================================5. SISTEM LAYOUT RESPONSIF TAMPILAN HP (BREAKPOINT < 768px)========================================================================== */
+@media (max-width: 768px) {
+  .pengin-intro {
+    grid-template-columns: 1fr; /* Bagian deskripsi dan search box bertumpuk */
+    gap: 24px;
+  }
+  .pengin-title {
+    font-size: 32px;
+  }
+  /* Merubah Susunan Showcase Grid dari Samping menjadi Atas-Bawah */
+  .pengin-showcase {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  /* Garis berubah orientasi dari Berdiri (Vertikal) menjadi Tidur (Horizontal) */
+  .garis-vertikal {
+    width: 100%;
+    height: 1px;
+    background-color: var(--pengin-line);
+    margin: 8px 0;
+  }
+  /* Struktur Rail di mobile otomatis runtuh rapi */
+  .pengin-rail {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+}

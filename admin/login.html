@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin - AgrindPress</title>
+  <link rel="stylesheet" href="./assets/admin.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="card login-card">
+      <div class="kicker">AgrindPress Admin</div>
+      <h1>Login</h1>
+      <p>Masuk untuk mengelola artikel, galeri, dan pilihan editor.</p>
+
+      <form id="loginForm" class="grid" style="gap:0;">
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <input id="email" type="email" placeholder="admin@agrindpress.id" required>
+        </div>
+        <div class="field" style="margin-top:16px; margin-bottom:24px;">
+          <label class="label" for="password">Password</label>
+          <input id="password" type="password" placeholder="••••••••" required>
+        </div>
+        <button class="btn primary" type="submit" style="width:100%;">Login</button>
+        <div id="loginMessage" class="notice error hidden" style="margin-top:16px; margin-bottom:0;"></div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="./js/login.js"></script>
+</body>
+</html>

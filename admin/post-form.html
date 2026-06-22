@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Artikel - AgrindPress</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css">
+  <link rel="stylesheet" href="./assets/admin.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="kicker">Artikel</div>
+          <h1>Form Artikel</h1>
+          <p>ID: <span id="postId">Baru</span> • User: <span id="currentUser">-</span></p>
+        </div>
+        <div class="toolbar">
+          <a class="btn ghost" href="./dashboard.html">Kembali</a>
+          <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <div id="formMessage" class="notice hidden"></div>
+
+        <form id="postForm">
+          <div class="form-grid">
+            <div class="field">
+              <label class="label" for="title">Judul</label>
+              <input id="title" name="title" type="text" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="author">Penulis</label>
+              <input id="author" name="author" type="text" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="category">Kategori</label>
+              <select id="category" name="category" required>
+                <option value="artikel">Artikel</option>
+                <option value="informasi">Informasi</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="sub">Subkategori</label>
+              <select id="sub" name="sub" required></select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="date">Tanggal</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="read_time">Estimasi Baca (menit)</label>
+              <input id="read_time" name="read_time" type="number" min="1" step="1" placeholder="3">
+            </div>
+
+            <div class="field full">
+              <label class="label" for="excerpt">Ringkasan</label>
+              <textarea id="excerpt" name="excerpt" rows="3" placeholder="Ringkasan singkat artikel..."></textarea>
+            </div>
+
+            <div class="field full">
+              <label class="label">Isi Artikel</label>
+
+              <div class="rich-editor-shell">
+                <div class="rich-toolbar" id="editorToolbar">
+                  <div class="rich-toolbar-group">
+                    <span class="rich-toolbar-label">Struktur</span>
+                    <div class="rich-toolbar-buttons">
+                      <button type="button" class="rich-btn" data-action="p" title="Paragraf biasa">P</button>
+                      <button type="button" class="rich-btn" data-action="neutral" title="Kembali ke paragraf biasa">Netral</button>
+                      <button type="button" class="rich-btn" data-action="kredit">Kredit</button>
+                      <button type="button" class="rich-btn" data-action="h2">H2</button>
+                      <button type="button" class="rich-btn" data-action="h3">H3</button>
+                      <button type="button" class="rich-btn" data-action="quote">Quote</button>
+                      <button type="button" class="rich-btn" data-action="small">Small</button>
+                      <button type="button" class="rich-btn" data-action="hr">HR</button>
+                    </div>
+                  </div>
+
+                  <div class="rich-toolbar-group">
+                    <span class="rich-toolbar-label">Format</span>
+                    <div class="rich-toolbar-buttons">
+                      <button type="button" class="rich-btn" data-action="bold">Bold</button>
+                      <button type="button" class="rich-btn" data-action="ol">1. List</button>
+                      <button type="button" class="rich-btn" data-action="ul">• List</button>
+                      <button type="button" class="rich-btn" data-action="link">Link</button>
+                    </div>
+                  </div>
+
+                  <div class="rich-toolbar-group">
+                    <span class="rich-toolbar-label">Media</span>
+                    <div class="rich-toolbar-buttons">
+                      <button type="button" class="rich-btn" data-action="img">IMG</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rich-layout">
+                  <div class="rich-pane rich-editor-pane">
+                    <div class="rich-pane-title">Editor</div>
+                    <div id="editor" class="rich-editor" aria-label="Editor artikel"></div>
+                    <textarea id="content_html" name="content_html" hidden></textarea>
+                    <div class="help">Gunakan P untuk kembali ke paragraf biasa. Netral dipakai sebagai reset darurat. Kredit gambar dibuat terpisah dari upload gambar. Hasil akhir tetap disimpan sebagai HTML.</div>
+                  </div>
+
+                  <div class="rich-pane rich-preview-pane">
+                    <div class="rich-pane-title">Preview Live</div>
+                    <div id="articlePreview" class="rich-preview"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="thumbnail">Thumbnail</label>
+              <input id="thumbnail" name="thumbnail" type="file" accept="image/*">
+              <div class="help">Kalau dibiarkan kosong saat edit, thumbnail lama dipakai lagi.</div>
+            </div>
+
+            <div class="field">
+              <label class="label">Preview Thumbnail</label>
+              <div class="card" id="thumbnailPreview" style="padding:12px; min-height:160px; display:grid; place-items:center; overflow:hidden;">
+                <span style="color:var(--muted)">Belum ada thumbnail</span>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label class="label" for="tags">Tags</label>
+              <input id="tags" name="tags" type="text" placeholder="agroindustri, opini, kampus">
+              <div class="help">Pisahkan dengan koma. Akan disimpan ke tabel post_tags.</div>
+            </div>
+
+            <div class="field full">
+              <div class="inline">
+                <input id="editor_pick" name="editor_pick" type="checkbox">
+                <label class="label" for="editor_pick" style="margin:0">Masuk Pilihan Editor</label>
+              </div>
+              <div class="help">Kalau dicentang, konten masuk daftar editor picks.</div>
+            </div>
+
+            <div class="field full">
+              <label class="label" for="editor_pick_note">Catatan Pilihan Editor</label>
+              <input id="editor_pick_note" name="editor_pick_note" type="text" placeholder="Pilihan Editor Juni 2026">
+            </div>
+          </div>
+
+          <div class="inline" style="margin-top:24px">
+            <button type="submit" class="btn primary" id="saveBtn">Simpan</button>
+            <button type="button" class="btn danger" id="deleteBtn">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="rich-modal hidden" id="imageModal" aria-hidden="true">
+    <div class="rich-modal-backdrop" data-modal-close="true"></div>
+    <div class="rich-modal-panel" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle">
+      <form id="imageForm" class="rich-modal-form">
+        <h3 id="imageModalTitle">Tambah Gambar</h3>
+        <div id="imageModalMessage" class="notice hidden"></div>
+
+        <label class="label" for="imageFile">Pilih File Gambar</label>
+        <input id="imageFile" type="file" accept="image/*" required>
+
+        <div id="imageFilePreview" class="rich-file-preview">
+          <span class="preview-empty">Belum ada file dipilih</span>
+        </div>
+
+        <div class="help">File hanya diupload. Kredit gambar ditulis lewat tombol Kredit di panel editor.</div>
+
+        <div class="rich-modal-actions">
+          <button type="button" class="btn ghost" id="imageCancel">Batal</button>
+          <button type="submit" class="btn primary">Sisipkan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+  <script type="module" src="./js/post-form.js"></script>
+</body>
+</html>

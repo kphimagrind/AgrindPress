@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang - AgrindPress</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <main class="container">
+    <section class="seksi">
+      <div class="seksi-header">
+        <h1 class="seksi-judul">Tentang AgrindPress</h1>
+      </div>
+      <div id="tentang-konten" style="max-width:680px;">
+        <p style="color:var(--teks-muted); line-height:1.85; margin-bottom:16px;">
+          <strong style="color:var(--teks)">AgrindPress</strong> adalah portal informasi dan opini
+          resmi milik Himpunan Mahasiswa Pengembangan Produk Agroindustri (HIMAGRIND).
+        </p>
+        <p style="color:var(--teks-muted); line-height:1.85; margin-bottom:16px;">
+          Portal ini hadir sebagai ruang bersuara bagi mahasiswa Program Studi
+          Pengembangan Produk Agroindustri - tempat berbagi informasi akademik, kegiatan
+          organisasi, opini, dan cerita sehari-hari dunia perkuliahan.
+        </p>
+        <p style="color:var(--teks-muted); line-height:1.85; margin-bottom:16px;">
+          Semua konten bersumber dari kontribusi mahasiswa dan pengurus HIMAGRIND.
+          Portal ini bersifat statis, ringan, dan dapat diakses tanpa hambatan.
+        </p>
+        <p style="color:var(--teks-dim); font-size:0.875rem;">
+          Kontak: <a href="mailto:kphimagrind@gmail.com" style="color:var(--aksen)">kphimagrind@gmail.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import Navbar from '../app/components/navbar.js';
+    import Footer from '../app/components/footer.js';
+    Navbar.render('navbar');
+    Footer.render('footer');
+  </script>
+</body>
+</html>

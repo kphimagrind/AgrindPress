@@ -1,0 +1,54 @@
+[
+  {
+    "id": "opini-001",
+    "judul": "Menilik Program MBG: Masyarakat Sulit Mengakses Pangan Bergizi?",
+    "kategori": "artikel",
+    "sub": "opini",
+    "penulis": "Anang S",
+    "tanggal": "2025-06-01",
+    "estimasi_baca": 4,
+    "thumbnail": "assets/img/thumbnails/oleh-anang-mbg.jpeg",
+    "ringkasan": "Mungkin jika kamu akses web portal AgrindPress, pada bulan Juni atau Juli 2026, opini saya adalah artikel opini pertama yang dimuat. Ya, saya termasuk ke dalam tim yang membentuk portal ini.",
+    "file": "content/artikel/opini/oleh-anang-mbg.html",
+    "tags": ["MBG", "pangan", "agroindustri"]
+  },
+  {
+    "id": "cerpen-001",
+    "judul": "Satu Pagi di Laboratorium",
+    "kategori": "artikel",
+    "sub": "cerpen",
+    "penulis": "Salma Aulia",
+    "tanggal": "2025-06-03",
+    "estimasi_baca": 7,
+    "thumbnail": "assets/img/thumbnails/cerpen-001.jpg",
+    "ringkasan": "Bau alkohol dan suara centrifuge menjadi latar belakang kisah pertemuan dua mahasiswa yang sama-sama kehilangan arah di semester akhir.",
+    "file": "content/artikel/cerpen/satu-pagi-di-laboratorium.html",
+    "tags": ["fiksi", "kampus", "cerpen"]
+  },
+  {
+    "id": "pengin-001",
+    "judul": "Kami Belum Memiliki Konten, Kirimkan Sekarang!",
+    "kategori": "artikel",
+    "sub": "pengin-cerita",
+    "penulis": "Anonim",
+    "tanggal": "2025-05-20",
+    "estimasi_baca": 2,
+    "thumbnail": "assets/img/thumbnails/pengin-001.jpg",
+    "ringkasan": "....",
+    "file": "content/artikel/pengin-cerita/tidak-paham-neraca-massa.html",
+    "tags": ["curhat", "akademik", "jujur"]
+  },
+  {
+    "id": "info-001",
+    "judul": "HIMSGRIND Resmi Luncurkan AgrindPress, Media Informasi Agroindustri",
+    "kategori": "informasi",
+    "sub": "organisasi",
+    "penulis": "Tim Redaksi AgrindPress",
+    "tanggal": "2026-06-15",
+    "estimasi_baca": 4,
+    "thumbnail": "assets/img/logo-agrindpress.jpg",
+    "ringkasan": "Himpunan Mahasiswa Pengembangan Produk Agroindustri resmi meluncurkan media dan informasi dengan nama Agrindpress, pada Date (00/00/00).",
+    "file": "content/informasi/organisasi/peluncuran-agrindpress.html",
+    "tags": ["himagrind", "AgrindPress", "agroindustri"]
+  }
+]

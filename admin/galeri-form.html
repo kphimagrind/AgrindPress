@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Galeri - AgrindPress</title>
+  <link rel="stylesheet" href="./assets/admin.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="kicker">Galeri Mahasiswa</div>
+          <h1>Form Galeri</h1>
+          <p>ID: <span id="postId">Baru</span> • User: <span id="currentUser">-</span></p>
+        </div>
+        <div class="toolbar">
+          <a class="btn ghost" href="./dashboard.html">Kembali</a>
+          <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <div id="formMessage" class="notice hidden"></div>
+
+        <form id="galleryForm">
+          <div class="form-grid">
+            <div class="field">
+              <label class="label" for="title">Judul</label>
+              <input id="title" name="title" type="text" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="author">Penulis</label>
+              <input id="author" name="author" type="text" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="date">Tanggal</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+
+            <div class="field">
+              <label class="label" for="photos">Foto (bisa banyak)</label>
+              <input id="photos" name="photos" type="file" accept="image/*" multiple required>
+              <div class="help">Foto pertama akan dipakai sebagai thumbnail.</div>
+            </div>
+
+            <div class="field full">
+              <label class="label" for="excerpt">Deskripsi / Ringkasan</label>
+              <textarea id="excerpt" name="excerpt" rows="4" placeholder="Deskripsi galeri..."></textarea>
+            </div>
+
+            <div class="field full">
+              <label class="label">Preview Foto</label>
+              <div class="card" id="photosPreview" style="padding:16px; min-height:160px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; overflow:auto;">
+                <span style="color:var(--muted)">Belum ada foto</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="inline" style="margin-top:24px">
+            <button type="submit" class="btn primary" id="saveBtn">Simpan</button>
+            <button type="button" class="btn danger" id="deleteBtn">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/galeri-form.js"></script>
+</body>
+</html>

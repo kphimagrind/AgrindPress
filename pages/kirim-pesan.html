@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kotak Aspirasi - AgrindPress</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <main>
+    <div class="form-section">
+      <div class="form-header">
+        <h1 class="seksi-judul" style="font-size:1.6rem;">Kotak Aspirasi</h1>
+        <p class="form-keterangan">
+          Sampaikan pertanyaan, saran, atau aspirasi kamu untuk HIMAGRIND dan portal ini.
+          Pesan akan langsung diteruskan ke pengurus.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="nama">Nama</label>
+        <input type="text" id="nama" class="form-input" placeholder="Nama kamu">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email (opsional)</label>
+        <input type="email" id="email" class="form-input" placeholder="email@example.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="subjek">Subjek</label>
+        <input type="text" id="subjek" class="form-input" placeholder="Topik pesanmu">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="pesan">Pesan</label>
+        <textarea id="pesan" class="form-textarea" placeholder="Tuliskan aspirasimu di sini..."></textarea>
+      </div>
+
+      <button class="form-btn" id="kirim-btn">Kirim Pesan</button>
+      <div class="form-status" id="form-status"></div>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script type="module" src="../app/modules/kirimPesan.js"></script>
+</body>
+</html>

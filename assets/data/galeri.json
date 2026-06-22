@@ -1,0 +1,19 @@
+[
+  {
+    "id": "galeri-001",
+    "judul": "Kami Belum Memilki Konten, Kirimkan Sekarang!",
+    "kategori": "artikel",
+    "sub": "galeri-mahasiswa",
+    "penulis": "Admin HIMAGRIND",
+    "tanggal": "2025-06-07",
+    "thumbnail": "assets/img/logo-agrindpress.jpg.",
+    "ringkasan": "Momen-momen dari praktikum analisis pangan angkatan 2023. Senyum di balik masker dan sarung tangan.",
+    "foto": [
+      "assets/img/logo-agrindpress.jpg",
+      "assets/img/logo-agrindpress.jpg",
+      "assets/img/logo-agrindpress.jpg",
+      "assets/img/logo-agrindpress.jpg"
+    ],
+    "file": "content/artikel/galeri-mahasiswa/praktikum-analisis-pangan-juni-2025.html"
+  }
+]

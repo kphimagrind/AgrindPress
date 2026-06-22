@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgrindPress - Berpikir Jernih dan Memandang Lebih Jauh</title>
+  <link rel="stylesheet" href="assets/css/main.css?v=3">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar"></div>
+
+  <!-- HERO -->
+  <div id="hero"></div>
+
+  <!-- KONTEN UTAMA -->
+  <main class="container-wide">
+
+    <!-- Searchbox -->
+    <div class="beranda-searchbox">
+      <div id="searchbox"></div>
+    </div>
+
+    <! -- ZONA PILIHAN EDITOR -- >
+    <section class="beranda-zona zona-pilihan-editor">
+      <div class="seksi-header">
+        <h2 class="seksi-judul">Pilihan Editor</h2>
+      </div>
+      <div id="pilihan-editor-scroll" class="pilihan-editor-scroll"><p class="loading">Memuat...</p></div>
+      </section>
+
+    <!-- ZONA UTAMA: Headline besar + sidebar kanan -->
+    <section class="beranda-zona zona-utama">
+      <div class="seksi-header">
+        <h2 class="seksi-judul">Terbaru</h2>
+      </div>
+      <!-- Grid Tirto: 1 artikel headline besar + kolom samping -->
+      <div class="tirto-grid">
+        <!-- Kolom kiri: headline utama -->
+        <div class="tirto-utama" id="headline-utama">
+          <p class="loading">Memuat...</p>
+        </div>
+        <!-- Kolom kanan: daftar artikel kecil -->
+        <aside class="tirto-samping" id="headline-samping">
+          <p class="loading">Memuat...</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ZONA DUA KOLOM: Informasi + Artikel berdampingan -->
+    <div class="beranda-dua-kolom">
+
+      <!-- Kolom Informasi -->
+      <section class="beranda-kolom zona-informasi">
+        <div class="seksi-header">
+          <h2 class="seksi-judul">Informasi</h2>
+          <a href="pages/kategori.html?kategori=informasi" class="seksi-more">Lihat semua →</a>
+        </div>
+        <div id="list-informasi"><p class="loading">Memuat...</p></div>
+      </section>
+
+      <!-- Kolom Artikel -->
+      <section class="beranda-kolom zona-artikel">
+        <div class="seksi-header">
+          <h2 class="seksi-judul">Artikel</h2>
+          <a href="pages/kategori.html?kategori=artikel" class="seksi-more">Lihat semua →</a>
+        </div>
+        <div id="list-artikel"><p class="loading">Memuat...</p></div>
+      </section>
+
+    </div>
+
+    <!-- ZONA GALERI FULL-WIDTH -->
+    <section class="beranda-zona zona-galeri">
+      <div class="seksi-header">
+        <h2 class="seksi-judul">Galeri Mahasiswa</h2>
+        <a href="pages/kategori.html?kategori=artikel&sub=galeri-mahasiswa" class="seksi-more">Lihat semua →</a>
+      </div>
+      <div id="list-galeri" class="galeri-row"><p class="loading">Memuat...</p></div>
+    </section>
+    
+<section class="beranda-zona zona-pengin-cerita">
+  <div class="container-wide">
+    <div class="pengin-header">
+      <div>
+        <h2 class="seksi-judul seksi-judul-pengin">Pengin Cerita</h2>
+      </div>
+
+      <a href="pages/pengin-cerita.html"class="seksi-more">Lebih banyak</a>
+    </div>
+
+    <div id="list-pengin-cerita">
+      <p class="loading">Memuat...</p>
+    </div>
+  </div>
+     </section>
+
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script type="module" src="app/modules/beranda.js"></script>
+</body>
+</html>

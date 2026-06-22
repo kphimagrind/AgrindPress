@@ -1,0 +1,28 @@
+[
+  {
+    "id": "opini-001",
+    "judul": "Menilik Program MBG: Masyarakat Sulit Mengakses Pangan Bergizi?",
+    "kategori": "artikel",
+    "sub": "opini",
+    "penulis": "Anang S",
+    "tanggal": "2025-06-01",
+    "estimasi_baca": 4,
+    "thumbnail": "assets/img/thumbnails/oleh-anang-mbg.jpeg",
+    "ringkasan": "Mungkin jika kamu akses web portal AgrindPress, pada bulan Juni atau Juli 2026, opini saya adalah artikel opini pertama yang dimuat. Ya, saya termasuk ke dalam tim yang membentuk portal ini.",
+    "file": "content/artikel/opini/oleh-anang-mbg.html",
+    "tags": ["MBG", "pangan", "agroindustri"]
+  },
+  {
+    "id": "info-001",
+    "judul": "HIMAGRIND Resmi Luncurkan AgrindPress, Media Informasi Agroindustri",
+    "kategori": "informasi",
+    "sub": "organisasi",
+    "penulis": "Tim Redaksi AgrindPress",
+    "tanggal": "2026-06-15",
+    "estimasi_baca": 4,
+    "thumbnail": "assets/img/logo-agrindpress.jpg",
+    "ringkasan": "Himpunan Mahasiswa Pengembangan Produk Agroindustri resmi meluncurkan media dan informasi dengan nama Agrindpress, pada Date (00/00/00).",
+    "file": "content/informasi/organisasi/peluncuran-agrindpress.html",
+    "tags": ["himagrind", "AgrindPress", "agroindustri"]
+  }
+]

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - AgrindPress</title>
+  <link rel="stylesheet" href="./assets/admin.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="container">
+      
+      <div class="topbar">
+        <div class="brand">
+          <div class="kicker">Dashboard</div>
+          <h1>AgrindPress Admin</h1>
+          <p>Masuk sebagai <span id="currentUser">-</span></p>
+        </div>
+
+        <div class="toolbar">
+          <a class="btn primary" href="./post-form.html">+ Artikel Baru</a>
+          <a class="btn primary" href="./galeri-form.html">+ Galeri Baru</a>
+          <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
+          <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <div style="display:none" aria-hidden="true">
+        <span id="countPosts">0</span>
+        <span id="countGallery">0</span>
+      </div>
+
+      <div id="stats" class="grid stats"></div>
+
+      <div class="card panel">
+        <div class="panel-header-inline">
+          <div>
+            <div class="kicker">Konten</div>
+            <h2>Daftar Artikel & Galeri</h2>
+          </div>
+          <div style="flex: 1; max-width: 360px; width: 100%;">
+            <input
+              id="searchPosts"
+              type="text"
+              placeholder="Cari judul, kategori, penulis..."
+            >
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Judul</th>
+                <th>Tipe</th>
+                <th>Sub</th>
+                <th>Tanggal</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="postsTableBody">
+              <tr><td colspan="6" style="text-align:center; color:var(--muted); padding:40px; font-style:italic;">Memuat data...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script type="module" src="./js/dashboard.js"></script>
+</body>
+</html>

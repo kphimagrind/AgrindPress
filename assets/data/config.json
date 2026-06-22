@@ -1,0 +1,80 @@
+{
+  "site": {
+    "nama": "AgrindPress",
+    "tagline": "Berpikir Jernih dan Memandang Lebih Jauh",
+    "organisasi": "Himpunan Mahasiswa Pengembangan Produk Agroindustri",
+    "singkatan": "HIMAGRIND",
+    "prodi": "Pengembangan Produk Agroindustri",
+    "email_kontak": "kphimagrind@gmail.com",
+    "logo": "assets/img/logo.png",
+    "tahun": 2026
+  },
+  "pilihan_editor": [
+    {
+      "id": "info-001",
+      "catatan": "Pilihan Editor Juni 2026"
+    },
+    {
+      "id": "cerpen-001",
+      "catatan": "Pilihan Editor Juni 2026"
+    },
+    {
+      "id": "opini-001",
+      "catatan": "Pilihan Editor Juni 2026"
+    },
+    {
+      "id": "pengin-001",
+      "catatan": "Pilihan Editor Juni 2026"
+    },
+    {
+      "id": "",
+      "catatan": "Pilihan Editor Juni 2026"
+    }
+  ],
+  "navigasi": [
+    {
+      "label": "Beranda",
+      "url": "index.html",
+      "children": []
+    },
+    {
+      "label": "Informasi",
+      "url": "pages/kategori.html?kategori=informasi",
+      "children": [
+        { "label": "Perkuliahan", "url": "pages/kategori.html?kategori=informasi&sub=perkuliahan" },
+        { "label": "Kegiatan",    "url": "pages/kategori.html?kategori=informasi&sub=kegiatan" },
+        { "label": "Organisasi",  "url": "pages/kategori.html?kategori=informasi&sub=organisasi" }
+      ]
+    },
+    {
+      "label": "Artikel",
+      "url": "pages/kategori.html?kategori=artikel",
+      "children": [
+        { "label": "Opini",           "url": "pages/kategori.html?kategori=artikel&sub=opini" },
+        { "label": "Cerpen",          "url": "pages/kategori.html?kategori=artikel&sub=cerpen" },
+        { "label": "Pengin Cerita",   "url": "pages/pengin-cerita.html" },
+        { "label": "Galeri Mahasiswa", "url": "pages/kategori.html?kategori=artikel&sub=galeri-mahasiswa" }
+      ]
+    },
+    {
+      "label": "Cari",
+      "url": "pages/search.html",
+      "children": []
+    },
+    {
+      "label": "Tentang",
+      "url": "pages/tentang.html",
+      "children": []
+    },
+    {
+      "label": "Kirim Pesan",
+      "url": "pages/kirim-pesan.html",
+      "children": []
+    },
+    {
+      "label": "Kirim Tulisan",
+      "url": "pages/kirim-tulisan.html",
+      "children": []
+    }
+  ]
+}
