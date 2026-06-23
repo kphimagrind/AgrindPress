@@ -90,7 +90,39 @@ const ArtikelService = {
         return true;
       })
       .slice(0, limit);
+  },
+  // Tambahkan di dalam objek ArtikelService { ... }
+
+async getEditorPicks() {
+  const semua = await this.getAll();
+
+  // Coba ambil dari Supabase dulu
+  const { data: picks, error } = await supabase
+    .from('editor_picks')
+    .select('*')
+    .order('sort_order', { ascending: true });
+
+  if (!error && picks && picks.length > 0) {
+    // Sumber: Supabase
+    return picks
+      .map(pe => {
+        const artikel = semua.find(a => a.id === pe.post_id);
+        return artikel ? { ...artikel, _catatan: pe.catatan } : null;
+      })
+      .filter(Boolean);
   }
+
+  // Fallback: config.json (sistem lama)
+  const config = await DataLoader.loadJSON('config.json');
+  if (!config?.pilihan_editor?.length) return [];
+
+  return config.pilihan_editor
+    .map(pe => {
+      const artikel = semua.find(a => a.id === pe.id);
+      return artikel ? { ...artikel, _catatan: pe.catatan } : null;
+    })
+    .filter(Boolean);
+}
 };
 
 export default ArtikelService;
