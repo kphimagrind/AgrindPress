@@ -42,28 +42,15 @@ async function renderZonaPilihanEditor() {
   const el = document.getElementById('pilihan-editor-scroll');
   if (!el) return;
 
-  const config = await DataLoader.loadJSON('config.json');
-  if (!config || !config.pilihan_editor || config.pilihan_editor.length === 0) {
-    el.innerHTML = '<p class="kosong">Belum ada pilihan editor.</p>';
-    return;
-  }
+  const items = await ArtikelService.getEditorPicks();
 
-  const semua = await ArtikelService.getTerbaru(999);
-  const items = config.pilihan_editor
-    .map(pe => {
-      const artikel = semua.find(a => a.id === pe.id);
-      return artikel ? { ...artikel, _catatan: pe.catatan } : null;
-    })
-    .filter(Boolean);
-
-  if (items.length === 0) {
+  if (!items || items.length === 0) {
     el.innerHTML = '<p class="kosong">Belum ada pilihan editor.</p>';
     return;
   }
 
   el.innerHTML = items.map(a => CardArtikel.renderPilihanEditor(a)).join('');
 }
-
 // Render zona Pengin Cerita (grid editorial)
 async function renderZonaPenginCerita() {
   const el = document.getElementById('list-pengin-cerita');
