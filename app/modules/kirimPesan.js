@@ -1,5 +1,5 @@
 // app/modules/kirimPesan.js
-// Mengirim pesan ke kphimagrind@gmail.com via Formspree
+// Mengirim pesan ke psdm@agrindpress.my.id via Formspree
 
 import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
@@ -7,7 +7,7 @@ import Footer from '../components/footer.js';
 // Ganti FORMSPREE_ID dengan kode dari formspree.io setelah daftar
 // Cara: daftar di https://formspree.io → buat form → salin ID (contoh: xpwzlkqv)
 const FORMSPREE_ID = 'GANTI_DENGAN_ID_FORMSPREE';
-const ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
+const ENDPOINT = `https://formspree.io/f/xdareoaj`;
 
 async function init() {
   await Navbar.render('navbar');
@@ -46,7 +46,7 @@ async function init() {
         throw new Error('Server error');
       }
     } catch {
-      status.textContent = 'Gagal mengirim. Coba lagi atau hubungi langsung: kphimagrind@gmail.com';
+      status.textContent = 'Gagal mengirim. Coba lagi atau hubungi langsung: psdm@agrindpress.my.id';
       status.className = 'form-status gagal';
     }
 
