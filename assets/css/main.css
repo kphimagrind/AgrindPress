@@ -67,9 +67,11 @@ a:hover { color: var(--aksen); }
 }
 
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 /* Desktop: logo terpusat di atas, menu di bawahnya - gaya Kompas.id */
 .navbar-inner {
@@ -328,7 +330,7 @@ a:hover { color: var(--aksen); }
 /* =============================================
    HALAMAN ARTIKEL
    ============================================= */
-.artikel-container { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+.artikel-container { max-width: 720px; margin: 0 auto; padding: 140px 40px 20px; }
 .artikel-label {
   font-size: 0.75rem;
   font-weight: 600;
@@ -369,7 +371,7 @@ a:hover { color: var(--aksen); }
   margin-bottom: 28px;
 }
 .artikel-konten {
-  font-size: 1rem;
+  font-size: 15px;
   line-height: 1.85;
   color: var(--teks);
 }
