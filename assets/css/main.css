@@ -352,11 +352,6 @@ a:hover { color: var(--aksen); }
    HALAMAN ARTIKEL
    ============================================= */
 .artikel-container { max-width: 720px; margin: 0 auto; padding: 140px 20px 16px; }
-@media (min-width: 769px) {
-    .artikel-container {
-        padding-top: 190px;
-    }
-}
 .artikel-label {
   font-size: 0.75rem;
   font-weight: 600;
