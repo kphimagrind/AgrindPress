@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Banner - AgrindPress</title>
+  <link rel="stylesheet" href="./assets/admin.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <div class="kicker">Banner</div>
+          <h1>Form Banner</h1>
+          <p>ID: <span id="bannerId">Baru</span> • User: <span id="currentUser">-</span></p>
+        </div>
+        <div class="toolbar">
+          <a class="btn ghost" href="./dashboard.html">Kembali</a>
+          <button class="btn danger" id="logoutBtn" type="button">Logout</button>
+        </div>
+      </div>
+
+      <div class="card panel">
+        <div id="formMessage" class="notice hidden"></div>
+
+        <form id="bannerForm">
+          <div class="form-grid">
+            <div class="field">
+              <label class="label" for="title">Judul</label>
+              <input id="title" name="title" type="text" required>
+              <div class="help">Judul internal banner untuk dashboard.</div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="slot">Slot</label>
+              <select id="slot" name="slot" required>
+                <option value="top">Top</option>
+                <option value="middle">Middle</option>
+                <option value="small">Small</option>
+              </select>
+              <div class="help">Top untuk di bawah navbar, Middle untuk tengah artikel, Small untuk slot fleksibel.</div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="target_page">Target Halaman</label>
+              <select id="target_page" name="target_page" required>
+                <option value="all">Semua</option>
+                <option value="home">Beranda</option>
+                <option value="artikel">Artikel</option>
+                <option value="kategori">Kategori</option>
+                <option value="search">Cari</option>
+                <option value="tentang">Tentang</option>
+                <option value="kirim-pesan">Kirim Pesan</option>
+                <option value="kirim-tulisan">Kirim Tulisan</option>
+                <option value="pengin-cerita">Pengin Cerita</option>
+              </select>
+              <div class="help">Pilih halaman tujuan penayangan banner.</div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="media_type">Tipe Media</label>
+              <select id="media_type" name="media_type" required>
+                <option value="image">Image</option>
+                <option value="gif">GIF</option>
+                <option value="video">Video</option>
+              </select>
+              <div class="help">GIF diperlakukan seperti gambar biasa di frontend.</div>
+            </div>
+
+            <div class="field full">
+              <label class="label" for="media_path">Media Path</label>
+              <input
+                id="media_path"
+                name="media_path"
+                type="text"
+                placeholder="banner/top/banner-001.webp"
+                required
+              >
+              <div class="help">Isi path relatif dari repo cloud. Contoh: <code>banner/top/banner-001.webp</code>.</div>
+            </div>
+
+            <div class="field full">
+              <label class="label" for="link_url">Link Tujuan</label>
+              <input
+                id="link_url"
+                name="link_url"
+                type="url"
+                placeholder="https://agrindpress.my.id/..."
+              >
+            </div>
+
+            <div class="field full">
+              <label class="label" for="alt_text">Alt Text</label>
+              <input
+                id="alt_text"
+                name="alt_text"
+                type="text"
+                placeholder="Deskripsi singkat banner"
+              >
+            </div>
+
+            <div class="field">
+              <label class="label" for="sort_order">Urutan Tampil</label>
+              <input id="sort_order" name="sort_order" type="number" min="0" step="1" value="0">
+            </div>
+
+            <div class="field">
+              <div class="inline" style="height:100%; align-items:center; gap:12px;">
+                <input id="open_in_new_tab" name="open_in_new_tab" type="checkbox" checked>
+                <label class="label" for="open_in_new_tab" style="margin:0">Buka link di tab baru</label>
+              </div>
+              <div class="help">Kalau dicentang, klik banner akan buka tab baru.</div>
+            </div>
+
+            <div class="field full">
+              <div class="inline" style="gap:12px; align-items:center;">
+                <input id="is_active" name="is_active" type="checkbox" checked>
+                <label class="label" for="is_active" style="margin:0">Banner aktif</label>
+              </div>
+              <div class="help">Kalau tidak aktif, banner tidak akan ditampilkan frontend.</div>
+            </div>
+          </div>
+
+          <div class="inline" style="margin-top:24px">
+            <button type="submit" class="btn primary" id="saveBtn">Simpan</button>
+            <button type="button" class="btn danger" id="deleteBtn">Hapus</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/banner-form.js"></script>
+</body>
+</html>
