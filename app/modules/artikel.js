@@ -115,8 +115,7 @@ if (data.content_html) {
         class="artikel-header-img"
         onerror="this.src='${placeholder}'"
       >
-      ${galeriHtml}  
-      <div id="banner-middle"></div>
+      ${galeriHtml} 
       <div class="artikel-konten">${konten}</div>
       ${relatedHtml}
     </main>`;
