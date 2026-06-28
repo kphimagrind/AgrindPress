@@ -3,11 +3,23 @@ import { supabase } from '../core/supabase.js';
 
 const CLOUD_BASE = 'https://himagrind.github.io/cloud/'; // url repo cloud HIMAGRIND
 
-const SLOT_MAP = [
-  { id: 'banner-top', slot: 'top', keepSpaceWhenEmpty: true },
-  { id: 'banner-middle', slot: 'middle', keepSpaceWhenEmpty: false },
-  { id: 'banner-small', slot: 'small', keepSpaceWhenEmpty: false }
-];
+const PAGE_LAYOUT = {
+  home: {
+    top: ['banner-top'],
+    middle: ['banner-middle-1', 'banner-middle-2', 'banner-middle-3'],
+    small: ['banner-small-1', 'banner-small-2']
+  },
+  artikel: {
+    top: ['banner-top'],
+    middle: ['banner-middle-1', 'banner-middle-2', 'banner-middle-3', 'banner-middle-4'],
+    small: ['banner-small-1', 'banner-small-2']
+  },
+  default: {
+    top: ['banner-top'],
+    middle: [],
+    small: []
+  }
+};
 
 let bannerCache = null;
 
@@ -77,30 +89,22 @@ function matchesPage(targetPage, pageKey) {
   return value === 'all' || value === pageKey;
 }
 
-function chooseBanner(rows, slot, pageKey) {
-  return rows.find(row =>
-    String(row.slot || '').trim().toLowerCase() === slot &&
-    matchesPage(row.target_page, pageKey)
-  ) || null;
+function getLayout(pageKey) {
+  return PAGE_LAYOUT[pageKey] || PAGE_LAYOUT.default;
 }
 
-async function renderSlot(def, rows, pageKey) {
-  const el = document.getElementById(def.id);
-  if (!el) return;
+function getBannersForSlot(rows, slot, pageKey) {
+  return rows.filter((row) =>
+    String(row.slot || '').trim().toLowerCase() === slot &&
+    matchesPage(row.target_page, pageKey)
+  );
+}
 
-  const banner = chooseBanner(rows, def.slot, pageKey);
-
-  if (!banner) {
-    el.innerHTML = '';
-    el.hidden = !def.keepSpaceWhenEmpty;
-    return;
-  }
-
-  el.hidden = false;
-
+function renderBannerToElement(el, banner, slotName) {
   const src = resolveUrl(banner.media_path);
   const alt = banner.alt_text || banner.title || 'Banner';
-  const openNew = banner.open_in_new_tab !== false && !!banner.link_url;
+  const isHttpLink = /^https?:\/\//i.test(String(banner.link_url || ''));
+  const openNew = banner.open_in_new_tab !== false && isHttpLink;
 
   const linkOpen = banner.link_url
     ? `<a class="banner-link" href="${escapeHtml(banner.link_url)}"${openNew ? ' target="_blank" rel="noopener noreferrer"' : ''}>`
@@ -122,8 +126,9 @@ async function renderSlot(def, rows, pageKey) {
         decoding="async"
       >`;
 
+  el.hidden = false;
   el.innerHTML = `
-    <section class="banner-shell banner-shell--${def.slot}">
+    <section class="banner-shell banner-shell--${slotName}">
       ${linkOpen}
         ${media}
       ${linkClose}
@@ -131,14 +136,32 @@ async function renderSlot(def, rows, pageKey) {
   `;
 }
 
+function renderSlotGroup(slotIds, banners, slotName) {
+  slotIds.forEach((slotId, index) => {
+    const el = document.getElementById(slotId);
+    if (!el) return;
+
+    const banner = banners[index] || null;
+
+    if (!banner) {
+      el.innerHTML = '';
+      el.hidden = slotName !== 'top';
+      return;
+    }
+
+    renderBannerToElement(el, banner, slotName);
+  });
+}
+
 const Banner = {
   async render() {
     const rows = await loadBanners();
     const pageKey = getPageKey();
+    const layout = getLayout(pageKey);
 
-    for (const def of SLOT_MAP) {
-      await renderSlot(def, rows, pageKey);
-    }
+    renderSlotGroup(layout.top, getBannersForSlot(rows, 'top', pageKey), 'top');
+    renderSlotGroup(layout.middle, getBannersForSlot(rows, 'middle', pageKey), 'middle');
+    renderSlotGroup(layout.small, getBannersForSlot(rows, 'small', pageKey), 'small');
   }
 };
 
