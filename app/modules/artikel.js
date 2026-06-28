@@ -178,8 +178,14 @@ async function init() {
 
   document.getElementById('artikel-body').innerHTML = html;
 
-  injectMiddleBannerSlots(4);
-  await Banner.render();
+  // Galeri tidak memakai middle banner
+  const isGaleri = data.sub === 'galeri-mahasiswa';
+
+  if (!isGaleri) {
+   injectMiddleBannerSlots(4);
+   }
+   await Banner.render();
+  
 }
 
 init();
