@@ -7,6 +7,7 @@ import ArtikelService from '../services/artikelService.js';
 import Pagination from '../templates/pagination.js';
 import CONFIG from '../core/config.js';
 import Router from '../core/router.js';
+import Banner from '../components/banner.js';
 
 const state = {
   all: [],
@@ -465,6 +466,8 @@ async function init() {
 
   bindSearchControls();
   renderAll();
+  await Banner.render();
 }
 
 init();
+      
