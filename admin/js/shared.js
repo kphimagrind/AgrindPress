@@ -252,3 +252,4 @@ export function toPostPayload(form) {
     editorPickNote: String(fd.get('editor_pick_note') || '').trim()
   };
 }
+                                   
