@@ -9,7 +9,7 @@
 <body>
   <div class="shell">
     <div class="container">
-      
+
       <div class="topbar">
         <div class="brand">
           <div class="kicker">Dashboard</div>
@@ -20,6 +20,7 @@
         <div class="toolbar">
           <a class="btn primary" href="./post-form.html">+ Artikel Baru</a>
           <a class="btn primary" href="./galeri-form.html">+ Galeri Baru</a>
+          <a class="btn primary" href="./banner-form.html">+ Banner Baru</a>
           <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
           <button class="btn danger" id="logoutBtn" type="button">Logout</button>
         </div>
@@ -28,6 +29,7 @@
       <div style="display:none" aria-hidden="true">
         <span id="countPosts">0</span>
         <span id="countGallery">0</span>
+        <span id="countBanners">0</span>
       </div>
 
       <div id="stats" class="grid stats"></div>
@@ -65,7 +67,42 @@
           </table>
         </div>
       </div>
-      
+
+      <div class="card panel" style="margin-top:32px;">
+        <div class="panel-header-inline">
+          <div>
+            <div class="kicker">Banner</div>
+            <h2>Daftar Banner</h2>
+          </div>
+          <div style="flex: 1; max-width: 360px; width: 100%;">
+            <input
+              id="searchBanners"
+              type="text"
+              placeholder="Cari judul, slot, target, path..."
+            >
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Judul</th>
+                <th>Slot</th>
+                <th>Target</th>
+                <th>Media</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="bannersTableBody">
+              <tr><td colspan="7" style="text-align:center; color:var(--muted); padding:40px; font-style:italic;">Memuat banner...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </div>
 
