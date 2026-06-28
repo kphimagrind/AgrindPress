@@ -2,7 +2,7 @@
 
 import Navbar         from '../components/navbar.js';
 import Footer         from '../components/footer.js';
-import Banner from '../components/banner.js';
+import Banner         from '../components/banner.js';
 import ArtikelService from '../services/artikelService.js';
 import CardArtikel    from '../templates/cardArtikel.js';
 import DataLoader     from '../core/dataLoader.js';
@@ -26,7 +26,63 @@ function waktuRelatif(str) {
   if (selisih < 86400 * 2)    return 'kemarin';
   if (selisih < 86400 * 7)    return `${Math.floor(selisih / 86400)} hari lalu`;
   if (selisih < 86400 * 30)   return `${Math.floor(selisih / 86400 / 7)} minggu lalu`;
-  return null; // lebih dari 30 hari - tidak tampil
+  return null;
+}
+
+function countMeaningfulParagraphs(rootEl) {
+  if (!rootEl) return [];
+
+  return Array.from(rootEl.querySelectorAll('p')).filter((paragraph) => {
+    if (paragraph.classList.contains('artikel-kredit')) return false;
+
+    const text = String(paragraph.textContent || '')
+      .replace(/\u00a0/g, ' ')
+      .trim();
+
+    const hasMedia = !!paragraph.querySelector('img, video, iframe');
+
+    return Boolean(text || hasMedia);
+  });
+}
+
+function buildBannerPoints(totalParagraphs, maxSlots) {
+  if (!totalParagraphs || !maxSlots) return [];
+
+  const desired = Math.min(maxSlots, totalParagraphs);
+  const points = [];
+
+  for (let i = 1; i <= desired; i += 1) {
+    let point = Math.ceil((totalParagraphs * i) / (desired + 1));
+    point = Math.min(totalParagraphs, Math.max(1, point));
+
+    if (points.length && point <= points[points.length - 1]) {
+      point = points[points.length - 1] + 1;
+    }
+
+    if (point > totalParagraphs) break;
+    points.push(point);
+  }
+
+  return points;
+}
+
+function injectMiddleBannerSlots(maxMiddle = 4) {
+  const contentEl = document.getElementById('artikelContent');
+  if (!contentEl) return;
+
+  const paragraphs = countMeaningfulParagraphs(contentEl);
+  const points = buildBannerPoints(paragraphs.length, maxMiddle);
+
+  points.forEach((point, index) => {
+    const targetParagraph = paragraphs[point - 1];
+    if (!targetParagraph) return;
+
+    const slot = document.createElement('div');
+    slot.id = `banner-middle-${index + 1}`;
+    slot.className = 'banner-slot banner-slot--middle';
+
+    targetParagraph.insertAdjacentElement('afterend', slot);
+  });
 }
 
 async function init() {
@@ -51,23 +107,21 @@ async function init() {
 
   document.title = `${data.judul} - AgrindPress`;
 
-  // Ambil konten HTML artikel - path relatif ke dokumen menggunakan CONFIG.baseUrl
   let konten = '';
 
-if (data.content_html) {
-  konten = data.content_html;
-} else if (data.file) {
-  konten = await DataLoader.loadHTML(
-    CONFIG.baseUrl + data.file
-  );
-}
+  if (data.content_html) {
+    konten = data.content_html;
+  } else if (data.file) {
+    konten = await DataLoader.loadHTML(
+      CONFIG.baseUrl + data.file
+    );
+  }
 
-  // Related posts
   const related = await ArtikelService.getRelated(data, 4);
   const relatedHtml = related.length > 0
     ? `<div class="related-section">
         <h2 class="related-judul">Artikel Terkait</h2>
-        ${related.map(a => CardArtikel.renderKecil(a)).join('')}
+        ${related.map((a) => CardArtikel.renderKecil(a)).join('')}
        </div>`
     : '';
 
@@ -80,34 +134,34 @@ if (data.content_html) {
   const thumbSrc = resolveAsset(data.thumbnail);
 
   const galeriHtml = Array.isArray(data.foto) && data.foto.length > 0
-  ? `
-    <section class="artikel-galeri">
-      <div class="artikel-galeri-grid">
-        ${data.foto.map((f, i) => `
-          <figure class="artikel-galeri-item">
-            <img
-              src="${resolveAsset(f)}"
-              alt="${data.judul} - Foto ${i + 1}"
-              loading="lazy"
-              onerror="this.src='${placeholder}'"
-            >
-          </figure>
-        `).join('')}
-      </div>
-    </section>
-  `
-  : '';
+    ? `
+      <section class="artikel-galeri">
+        <div class="artikel-galeri-grid">
+          ${data.foto.map((f, i) => `
+            <figure class="artikel-galeri-item">
+              <img
+                src="${resolveAsset(f)}"
+                alt="${data.judul} - Foto ${i + 1}"
+                loading="lazy"
+                onerror="this.src='${placeholder}'"
+              >
+            </figure>
+          `).join('')}
+        </div>
+      </section>
+    `
+    : '';
 
   const html = `
     <main class="artikel-container">
-      <span class="artikel-label">${data.sub?.replace(/-/g,' ')}</span>
+      <span class="artikel-label">${data.sub?.replace(/-/g, ' ')}</span>
       <h1 class="artikel-judul">${data.judul}</h1>
       <div class="artikel-meta">
         <span class="artikel-penulis">${data.penulis}</span>
         <span class="card-sep">&middot;</span>
         <span>${formatTanggal(data.tanggal)}${waktuRelatif(data.tanggal) ? ` <span class="artikel-waktu-rel">(${waktuRelatif(data.tanggal)})</span>` : ''}</span>
         <span class="card-sep">&middot;</span>
-        <span>${data.estimasi_baca ? `${data.estimasi_baca} menit baca` : ""}</span>
+        <span>${data.estimasi_baca ? `${data.estimasi_baca} menit baca` : ''}</span>
       </div>
       <img
         src="${thumbSrc}"
@@ -115,12 +169,16 @@ if (data.content_html) {
         class="artikel-header-img"
         onerror="this.src='${placeholder}'"
       >
-      ${galeriHtml} 
-      <div class="artikel-konten">${konten}</div>
+      ${galeriHtml}
+      <div class="artikel-konten" id="artikelContent">${konten}</div>
+      <div id="banner-small-1" class="banner-slot banner-slot--small"></div>
       ${relatedHtml}
+      <div id="banner-small-2" class="banner-slot banner-slot--small"></div>
     </main>`;
 
   document.getElementById('artikel-body').innerHTML = html;
+
+  injectMiddleBannerSlots(4);
   await Banner.render();
 }
 
