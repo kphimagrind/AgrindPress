@@ -8,6 +8,7 @@ import CardArtikel    from '../templates/cardArtikel.js';
 import Pagination     from '../templates/pagination.js';
 import Router         from '../core/router.js';
 import CONFIG         from '../core/config.js';
+import Banner         from '../components/banner.js';
 
 const LABEL = {
   informasi: 'Informasi',
@@ -83,6 +84,7 @@ async function init() {
 
   semuaData = await ArtikelService.getByKategori(kategori, sub);
   tampilHalaman(semuaData, 1);
+  await Banner.render();
 }
 
 init();
