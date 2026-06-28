@@ -6,6 +6,7 @@ import Searchbox      from '../components/searchbox.js';
 import ArtikelService from '../services/artikelService.js';
 import CardArtikel    from '../templates/cardArtikel.js';
 import DataLoader     from '../core/dataLoader.js';
+import Banner         from '../components/banner.js';
 
 async function renderHero() {
   const config = await DataLoader.loadJSON('config.json');
@@ -93,6 +94,7 @@ function renderList(containerId, items, renderFn) {
 
 async function init() {
   await Navbar.render('navbar');
+  await Banner.render();
   await Footer.render('footer');
   await renderHero();
   Searchbox.render('searchbox');
@@ -112,3 +114,4 @@ async function init() {
 }
 
 init();
+    
