@@ -440,17 +440,26 @@ a:hover { color: var(--aksen); }
   #banner-small-2 {
     margin-top: 20px;
   }
-  #banner-middle-1 .banner-media,
-#banner-middle-2 .banner-media,
-#banner-middle-3 .banner-media,
-#banner-middle-4 .banner-media {
-    aspect-ratio: 4 / 1;
-}
+   #banner-middle-1 .banner-media,
+   #banner-middle-2 .banner-media,
+   #banner-middle-3 .banner-media,
+   #banner-middle-4 .banner-media {
+    transform: scaleY(1.12);
+    transform-origin: center;
+    transition: transform .2s ease;
+  }
+   #banner-middle-1 .banner-shell,
+   #banner-middle-2 .banner-shell,
+   #banner-middle-3 .banner-shell,
+   #banner-middle-4 .banner-shell {
+    overflow: hidden;
+  }
 
-#banner-small-1 .banner-media,
-#banner-small-2 .banner-media {
-    aspect-ratio: 6 / 1;
-}
+
+    #banner-small-1 .banner-media,
+    #banner-small-2 .banner-media {
+      aspect-ratio: 6 / 1;
+  }
 }
 
 .artikel-label {
