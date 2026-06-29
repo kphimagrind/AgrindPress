@@ -440,12 +440,7 @@ a:hover { color: var(--aksen); }
   #banner-small-2 {
     margin-top: 20px;
   }
-   #banner-middle-1,
-  #banner-middle-2,
-  #banner-middle-3,
-  #banner-middle-4,
-  #banner-small-1,
-  #banner-small-2 {
+.banner-shell-middle {
     aspect-ratio: 6.5 / 1;
   }
 
