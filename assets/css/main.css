@@ -521,6 +521,11 @@ a:hover { color: var(--aksen); }
   line-height: 1.85;
   color: var(--teks);
 }
+.artikel-konten > [id^="banner-"]{
+    margin:28px auto !important;
+    padding:0 !important;
+    line-height:normal;
+}
 .artikel-konten p { margin-bottom: 20px; }
 .artikel-konten h2 {
   font-family: var(--font-display);
