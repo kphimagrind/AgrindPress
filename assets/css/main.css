@@ -440,28 +440,34 @@ a:hover { color: var(--aksen); }
   #banner-small-2 {
     margin-top: 20px;
   }
-.banner-shell-middle {
+/* 1. Slot (penempatan) */
+#banner-middle-1,
+#banner-middle-2,
+#banner-middle-3,
+#banner-middle-4 {
+    max-width: 900px;
+    margin: 28px auto;
+}
+
+/* 2. Wadah */
+.banner-shell--middle {
     aspect-ratio: 6.5 / 1;
-  }
-
-#banner-middle-1 .banner-link,
-#banner-middle-2 .banner-link,
-#banner-middle-3 .banner-link,
-#banner-middle-4 .banner-link{
-    display:block;
-    width:100%;
-    height:100%;
+    overflow: hidden;
 }
 
-#banner-middle-1 .banner-media,
-#banner-middle-2 .banner-media,
-#banner-middle-3 .banner-media,
-#banner-middle-4 .banner-media{
-    width:100%;
-    height:100%;
-    object-fit:fill;
+/* 3. Link */
+.banner-shell--middle .banner-link {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
+/* 4. Media */
+.banner-shell--middle .banner-media {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
 
     #banner-small-1 .banner-media,
     #banner-small-2 .banner-media {
