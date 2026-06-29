@@ -470,11 +470,23 @@ a:hover { color: var(--aksen); }
     height: 100%;
     object-fit: fill;
 }
-
+/*banner kecil*/
     #banner-small-1 .banner-media,
     #banner-small-2 .banner-media {
-      aspect-ratio: 7.5 / 1;
+      aspect-ratio: 6 / 1;
+      display: flex;
   }
+    #banner-small-1 .banner-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+  }
+  .banner-shell--small .banner-media {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+   }
 }
 
 .artikel-label {
