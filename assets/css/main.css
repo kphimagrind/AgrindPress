@@ -441,7 +441,7 @@ a:hover { color: var(--aksen); }
     margin-top: 20px;
   }
  .banner-shell--middle{
-    aspect-ratio: 5 / 1;
+    aspect-ratio: 6 / 1;
   }
 
 .banner-shell--middle .banner-link{
@@ -459,7 +459,7 @@ a:hover { color: var(--aksen); }
 
     #banner-small-1 .banner-media,
     #banner-small-2 .banner-media {
-      aspect-ratio: 5.5 / 1;
+      aspect-ratio: 6.5 / 1;
   }
 }
 
