@@ -440,21 +440,23 @@ a:hover { color: var(--aksen); }
   #banner-small-2 {
     margin-top: 20px;
   }
-   #banner-middle-1 .banner-media,
-   #banner-middle-2 .banner-media,
-   #banner-middle-3 .banner-media,
-   #banner-middle-4 .banner-media {
+#banner-middle-1 .banner-shell,
+#banner-middle-2 .banner-shell,
+#banner-middle-3 .banner-shell,
+#banner-middle-4 .banner-shell {
     aspect-ratio: 4 / 1;
-    transform: scaleY(1.12);
-    transform-origin: center;
-    transition: transform .2s ease;
-  }
-   #banner-middle-1 .banner-shell,
-   #banner-middle-2 .banner-shell,
-   #banner-middle-3 .banner-shell,
-   #banner-middle-4 .banner-shell {
     overflow: hidden;
-  }
+}
+
+#banner-middle-1 .banner-media,
+#banner-middle-2 .banner-media,
+#banner-middle-3 .banner-media,
+#banner-middle-4 .banner-media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
 
 
     #banner-small-1 .banner-media,
