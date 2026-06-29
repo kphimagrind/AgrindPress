@@ -453,6 +453,7 @@ a:hover { color: var(--aksen); }
 .banner-shell--middle {
     aspect-ratio: 6.5 / 1;
     overflow: hidden;
+    display: flex;
 }
 
 /* 3. Link */
@@ -460,6 +461,7 @@ a:hover { color: var(--aksen); }
     display: block;
     width: 100%;
     height: 100%;
+    flex: 1;
 }
 
 /* 4. Media */
