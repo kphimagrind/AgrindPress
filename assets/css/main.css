@@ -444,6 +444,7 @@ a:hover { color: var(--aksen); }
    #banner-middle-2 .banner-media,
    #banner-middle-3 .banner-media,
    #banner-middle-4 .banner-media {
+    aspect-ratio: 4 / 1;
     transform: scaleY(1.12);
     transform-origin: center;
     transition: transform .2s ease;
