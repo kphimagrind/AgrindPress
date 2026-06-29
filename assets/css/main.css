@@ -505,7 +505,7 @@ a:hover { color: var(--aksen); }
 }
 .artikel-penulis { color: var(--teks-muted); font-weight: 500; }
 .artikel-waktu-rel { font-size: 0.8em; opacity: 0.7; }
-.artikel-header-img:not(.banner-media) {
+.artikel-header-img {
   width: 100%;
   border-radius: var(--radius);
   margin-bottom: 8px;
@@ -570,7 +570,7 @@ a:hover { color: var(--aksen); }
 .text-aksen {
   color: var(--aksen);
 }
-.artikel-konten img {
+.artikel-konten img:not.(banner-media){
   width: 100%;
   height: auto;
   max-width: 100%;
