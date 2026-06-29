@@ -451,7 +451,7 @@ a:hover { color: var(--aksen); }
 
 /* 2. Wadah */
 .banner-shell--middle {
-    aspect-ratio: 6.5 / 1;
+    aspect-ratio: 6.3 / 1;
     overflow: hidden;
     display: flex;
 }
@@ -473,7 +473,7 @@ a:hover { color: var(--aksen); }
 /*banner kecil*/
     #banner-small-1 .banner-media,
     #banner-small-2 .banner-media {
-      aspect-ratio: 6 / 1;
+      aspect-ratio: 6.8 / 1;
       display: flex;
   }
     #banner-small-1 .banner-link {
